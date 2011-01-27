@@ -32,6 +32,8 @@ class Flickr::Photosets::Photoset
        :secret => photo[:secret], 
        :server => photo[:server], 
        :farm => photo[:farm],
-       :title => photo[:title]}
+       :title => photo[:title],
+       :is_primary => photo[:isprimary] == "1"
+      }
     end
 end

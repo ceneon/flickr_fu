@@ -10,7 +10,7 @@ begin
     require 'jeweler'
   end
   Jeweler::Tasks.new do |s|
-    s.name = "tomk32-flickr_fu"
+    s.name = "flickr_fu"
     s.summary = "Provides a ruby interface to flickr via the REST api"
     s.email = "tomk32@gmx.de"
     s.homepage = "http://github.com/tomk32/flickr_fu"

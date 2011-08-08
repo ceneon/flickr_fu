@@ -1,5 +1,5 @@
 class Flickr::Photosets::Photoset
-  attr_accessor :id,:num_photos,:title,:description
+  attr_accessor :id,:num_photos,:title,:description, :owner
   
   def initialize(flickr, attributes)
     @flickr = flickr

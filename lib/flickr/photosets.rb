@@ -8,6 +8,16 @@ class Flickr::Photosets < Flickr::Base
   def get_list(options={})
     rsp = @flickr.send_request('flickr.photosets.getList', options)
     collect_photosets(rsp)
+  end  
+  
+  # Returns a Flickr::Photos::Photoset object of the given id.
+  # Raises an error if photoset not found
+  def find_by_id(photoset_id)
+    rsp = @flickr.send_request('flickr.photosets.getInfo', :photoset_id => photoset_id)       
+    attributes = create_attributes(rsp.photoset) 
+    ps = Photoset.new(@flickr, attributes) 
+    ps.owner = rsp.photoset[:owner]
+    ps
   end
     
   protected  

@@ -139,11 +139,11 @@ module Flickr
     
     # For easier testing. You can mock this method with a XML file you're expecting to receive
     def request_over_http(options, http_method, endpoint)
+      options[:use_ssl] = true
       if http_method == :get
         api_call = endpoint + "?" + options.collect{|k,v| "#{k}=#{CGI.escape(v.to_s)}"}.join('&')
         Net::HTTP.get(URI.parse(api_call))
       else
-        options[:use_ssl] = true
         Net::HTTP.post_form(URI.parse(endpoint), options).body
       end
     end

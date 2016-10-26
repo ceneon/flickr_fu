@@ -143,6 +143,7 @@ module Flickr
         api_call = endpoint + "?" + options.collect{|k,v| "#{k}=#{CGI.escape(v.to_s)}"}.join('&')
         Net::HTTP.get(URI.parse(api_call))
       else
+        options[:use_ssl] = true
         Net::HTTP.post_form(URI.parse(endpoint), options).body
       end
     end
